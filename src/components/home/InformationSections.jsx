@@ -31,7 +31,7 @@ export function HowItWorks() {
   return (
     <section id="how-it-works" aria-labelledby="how-heading" className="scroll-mt-28 border-b border-[#e2e9f2] bg-[#f5f8ff] py-16 lg:py-20">
       <div className="site-container">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div data-reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="mb-3 flex items-center gap-3 text-sm font-semibold text-[#064bdb]">
               <span aria-hidden="true" className="h-px w-8 bg-[#064bdb]" />
@@ -44,8 +44,8 @@ export function HowItWorks() {
 
         <ol className="mt-9 grid gap-4 md:grid-cols-3 md:gap-8">
           {steps.map(({ number, title, description, Icon, iconClassName, badgeClassName }, index) => (
-            <li key={number} className="relative rounded-2xl border border-[#e2e9f2] bg-white p-6 shadow-[0_3px_14px_#163b6504] md:p-7">
-              <div className={`relative mb-6 flex size-16 items-center justify-center rounded-full ${iconClassName}`}>
+            <li key={number} data-reveal data-reveal-delay={index * 85} className="journey-card relative rounded-2xl border border-[#e2e9f2] bg-white p-6 shadow-[0_3px_14px_#163b6504] md:p-7">
+              <div className={`journey-icon relative mb-6 flex size-16 items-center justify-center rounded-full ${iconClassName}`}>
                 <Icon aria-hidden="true" size={30} strokeWidth={1.6} />
                 <span dir="ltr" className={`absolute -bottom-1 -end-1 flex size-7 items-center justify-center rounded-full border-[3px] border-white font-number text-[10px] font-bold text-white ${badgeClassName}`}>{number}</span>
               </div>
@@ -70,7 +70,7 @@ export function WhySaleem() {
   return (
     <section id="why-saleem" aria-labelledby="why-heading" className="scroll-mt-28 bg-[#f1f6ff] py-20 lg:py-24">
       <div className="site-container grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
-        <div>
+        <div data-reveal>
           <p className="mb-4 flex items-center gap-3 text-sm font-semibold text-[#064bdb]">
             <span aria-hidden="true" className="h-px w-8 bg-[#064bdb]" />
             لماذا سليم؟
@@ -84,7 +84,7 @@ export function WhySaleem() {
         </div>
         <ul className="divide-y divide-[#dce5f2] border-y border-[#dce5f2]">
           {benefits.map(({ title, description }, index) => (
-            <li key={title} className="flex gap-5 py-7 first:pt-6 last:pb-6">
+            <li key={title} data-reveal data-reveal-delay={index * 70} className="flex gap-5 py-7 first:pt-6 last:pb-6">
               <span aria-hidden="true" className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-[#009c73]/10 text-xs font-semibold text-[#009c73]">{index + 1}</span>
               <div>
                 <h3 className="text-lg font-bold text-[#142b46]">{title}</h3>
@@ -125,7 +125,7 @@ export function Faq() {
   return (
     <section id="faq" aria-labelledby="faq-heading" className="scroll-mt-28 bg-white py-20 lg:py-24">
       <div className="site-container grid gap-9 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <div>
+        <div data-reveal>
           <p className="mb-3 flex items-center gap-3 text-sm font-semibold text-[#064bdb]">
             <span aria-hidden="true" className="h-px w-8 bg-[#064bdb]" />
             إجابات تساعدك
@@ -133,7 +133,7 @@ export function Faq() {
           <h2 id="faq-heading" className="text-3xl font-bold leading-relaxed text-[#142b46] lg:text-4xl">قد تتساءل…</h2>
           <p className="mt-4 max-w-xs text-sm leading-8 text-[#627086]">تعرف على سليم، واختر بداية تناسبك.</p>
         </div>
-        <div className="border-t border-[#e2e9f2]">
+        <div data-reveal data-reveal-delay="90" className="border-t border-[#e2e9f2]">
           {questions.map(({ question, answer }) => (
             <details key={question} className="group border-b border-[#e2e9f2]">
               <summary className="flex cursor-pointer list-none items-start justify-between gap-5 rounded-sm py-6 text-sm font-semibold leading-7 text-[#142b46] transition-colors hover:text-[#064bdb] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#064bdb] [&::-webkit-details-marker]:hidden">

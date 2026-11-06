@@ -81,6 +81,68 @@
 .journey-radio:focus-visible + .choice-face { outline: 3px solid #064bdb; outline-offset: 3px; }
 .brand-stripes { transform: skewX(-30deg); }
 
+/* Short, one-shot motion; interactive content keeps its natural layout. */
+@keyframes content-enter {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes dialog-enter {
+  from { opacity: 0; transform: translateY(10px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes backdrop-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes underline-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-underline { stroke-dasharray: 1; animation: underline-draw 700ms 220ms ease-out backwards; }
+  .product-summary { animation: content-enter 240ms ease-out; }
+  #faq details[open] > p { animation: content-enter 220ms ease-out; }
+  #mobile-menu { animation: content-enter 180ms ease-out; }
+  dialog[open] { animation: dialog-enter 220ms cubic-bezier(.22, 1, .36, 1); }
+  dialog[open]::backdrop { animation: backdrop-enter 180ms ease-out; }
+
+  .product-card, .journey-card {
+    transition: translate 220ms ease-out, box-shadow 220ms ease-out, border-color 180ms, background-color 180ms;
+  }
+  .product-icon, .journey-icon { transition: transform 240ms ease-out; }
+  .button-primary, .button-secondary, .motion-cta {
+    transition: translate 180ms ease-out, background-color 180ms, box-shadow 180ms;
+  }
+  :is(.button-primary, .button-secondary, .motion-cta) > svg { transition: translate 180ms ease-out; }
+
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-green);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 200ms ease-out;
+  }
+  .nav-link:is(:hover, :focus-visible)::after { transform: scaleX(1); }
+
+  @media (hover: hover) and (pointer: fine) {
+    .product-card:hover { translate: 0 -3px; box-shadow: 0 8px 20px #163b6510; }
+    .product-card[aria-pressed='true']:hover { box-shadow: 0 0 0 1px #064bdb, 0 8px 20px #163b6510; }
+    .product-card:hover .product-icon { transform: rotate(-4deg) scale(1.05); }
+    .journey-card:hover { translate: 0 -3px; box-shadow: 0 8px 24px #163b650d; border-color: #c8d8ef; }
+    .journey-card:hover .journey-icon { transform: translateY(-2px); }
+    :is(.button-primary, .button-secondary, .motion-cta):hover { translate: 0 -2px; }
+    :is(.button-primary, .button-secondary, .motion-cta):hover > svg { translate: -3px 0; }
+    :is(.button-primary, .button-secondary, .motion-cta, .product-card):active { translate: 0 0; }
+  }
+}
+
 @media (max-width: 639px) {
   .site-container { padding-inline: 20px; }
 }

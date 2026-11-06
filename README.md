@@ -23,6 +23,8 @@ Entry options include travel type and purpose, savings goals, and premium-reside
 
 The hero cycles through ten insurance images every four seconds. Click the photo to advance, use the arrows or dots to choose a slide, or pause the rotation. Rotation pauses while the carousel is hovered, focused, offscreen or the browser tab is hidden; reduced-motion preferences start it paused. Product cards use category-coloured icons with pastel backgrounds. Only the current and next photos are requested initially.
 
+Motion includes a smooth photo crossfade, one-time section entrances, subtle card/button hover effects, and short transitions for product summaries, dialogs and FAQ answers. It uses CSS and native browser animations without an animation dependency. Reduced-motion preferences disable these effects, including when changed while the page is open.
+
 This is a **frontend prototype**. It makes no API calls, collects no customer identity data, and does not provide real quotations, verification, payments or policy issuance. Account and help buttons open clearly labelled prototype dialogs. Full insurance journeys remain future work.
 
 The brief's motor-first and pilot-product limits concern a future operational launch. This design includes all ten categories as requested for the landing-page assignment.
@@ -47,6 +49,7 @@ src/
     home/             Landing-page sections and product journey preview
     ui/               Shared interface components
   data/               Product catalogue and page content
+  hooks/              Shared browser interactions and scroll entrances
   layouts/            Shared page layout
   pages/Home.jsx      Landing page
   styles/             Tailwind entry and theme

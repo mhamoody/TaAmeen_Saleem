@@ -50,7 +50,7 @@ export default function InsuranceExplorer() {
   return (
     <section id="insurance" aria-labelledby="insurance-heading" className="scroll-mt-24 border-b border-line bg-white py-16 lg:py-21">
       <div className="site-container">
-        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <div data-reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div><p className="section-kicker mb-3">احتياجات مختلفة. وجهة واحدة.</p><h2 id="insurance-heading" className="text-[27px] font-bold leading-relaxed sm:text-[34px]">على ماذا تحب أن تطمئن؟</h2><p className="mt-2 text-sm leading-7 text-muted">اختر التأمين المناسب، وتعرّف على مسارك بخطوات واضحة.</p></div>
           <div role="group" aria-label="تصفية منتجات التأمين" className="flex w-fit max-w-full items-center gap-1 rounded-xl border border-line bg-[#f7f9fc] p-1">
             {filters.map(({ id, label, Icon }) => <button key={id} onClick={() => changeFilter(id)} aria-pressed={visibleFilter === id} className={`flex min-h-10 items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-[11px] font-semibold transition-colors sm:px-4 ${visibleFilter === id ? 'bg-white text-brand shadow-sm ring-1 ring-line' : 'text-muted hover:text-brand'}`}>{Icon && <Icon size={14} aria-hidden="true" />}{label}</button>)}
@@ -58,19 +58,19 @@ export default function InsuranceExplorer() {
         </div>
 
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5" role="group" aria-label="منتجات التأمين">
-          {visible.map(item => {
+          {visible.map((item, index) => {
             const Icon = icons[item.icon];
             const selected = product.id === item.id;
             const visual = productVisuals[item.id];
-            return <button key={item.id} onClick={() => selectProduct(item.id)} aria-pressed={selected} aria-controls="insurance-start" className="product-card flex min-h-30 flex-col justify-between gap-3 rounded-2xl border border-line bg-white p-4 text-start sm:p-5">
-              <span className="flex w-full items-center justify-between"><span className="flex size-12 shrink-0 items-center justify-center rounded-full" style={{ color: visual.color, backgroundColor: visual.background }}><Icon size={27} strokeWidth={1.7} aria-hidden="true" /></span>{selected ? <CircleCheck size={17} className="text-brand" aria-hidden="true" /> : <ArrowUpLeft size={17} className="text-[#9cadbf]" aria-hidden="true" />}</span>
+            return <button key={item.id} data-reveal data-reveal-delay={(index % 5) * 45} onClick={() => selectProduct(item.id)} aria-pressed={selected} aria-controls="insurance-start" className="product-card flex min-h-30 flex-col justify-between gap-3 rounded-2xl border border-line bg-white p-4 text-start sm:p-5">
+              <span className="flex w-full items-center justify-between"><span className="product-icon flex size-12 shrink-0 items-center justify-center rounded-full" style={{ color: visual.color, backgroundColor: visual.background }}><Icon size={27} strokeWidth={1.7} aria-hidden="true" /></span>{selected ? <CircleCheck size={17} className="text-brand" aria-hidden="true" /> : <ArrowUpLeft size={17} className="text-[#9cadbf]" aria-hidden="true" />}</span>
               <span className={`text-xs font-semibold leading-6 ${selected ? 'text-brand' : 'text-ink'}`}>{item.title}</span>
             </button>;
           })}
         </div>
 
         <div id="insurance-start" className="mt-6 scroll-mt-28 overflow-hidden rounded-2xl border border-line bg-[#fbfcff] lg:grid lg:grid-cols-[0.85fr_1.4fr]">
-          <div className="relative overflow-hidden border-b border-line bg-[#f1f6ff] p-6 sm:p-8 lg:border-b-0 lg:border-e">
+          <div key={product.id} className="product-summary relative overflow-hidden border-b border-line bg-[#f1f6ff] p-6 sm:p-8 lg:border-b-0 lg:border-e">
             <div className="flex items-center gap-2 text-xs font-semibold text-green"><span className="flex size-5 items-center justify-center rounded-full bg-green/10"><Check size={12} /></span>اخترت البداية المناسبة</div>
             <div className="mt-5 flex items-start gap-3"><ProductIcon size={28} strokeWidth={1.7} aria-hidden="true" className="mt-1 shrink-0" style={{ color: productVisual.color }} /><h3 className="text-xl font-bold leading-9">{product.title}</h3></div>
             <p className="mt-3 max-w-sm text-sm leading-8 text-muted">{product.description}</p>

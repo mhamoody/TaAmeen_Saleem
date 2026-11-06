@@ -7,10 +7,10 @@ export default function Hero() {
       <div className="site-container relative">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
           <div className="pb-2 pt-2 lg:py-6">
-            <p className="section-kicker mb-5">لحياتك، ولأعمالك، ولما هو قادم</p>
-            <h1 id="hero-heading" className="text-[39px] font-bold leading-[1.55] tracking-tight text-ink sm:text-[50px] xl:text-[60px]">حياتك تمضي.<br />وتأمينك <span className="relative inline-block text-brand">سليم.<svg aria-hidden="true" viewBox="0 0 180 14" className="absolute -bottom-1 right-0 h-3 w-full text-[#00a779]"><path d="M3 9Q80 0 176 6" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" /></svg></span></h1>
-            <p className="mt-7 max-w-md text-[15px] leading-8 text-muted">من سيارتك وبيتك إلى عائلتك وأعمالك.<br className="hidden sm:block" /> اكتشف خيارات التأمين، واختر بداية تناسب ما يهمّك.</p>
-            <div className="mt-8 flex flex-wrap items-center gap-5">
+            <p data-reveal className="section-kicker mb-5">لحياتك، ولأعمالك، ولما هو قادم</p>
+            <h1 data-reveal data-reveal-delay="70" id="hero-heading" className="text-[39px] font-bold leading-[1.55] tracking-tight text-ink sm:text-[50px] xl:text-[60px]">حياتك تمضي.<br />وتأمينك <span className="relative inline-block text-brand">سليم.<svg aria-hidden="true" viewBox="0 0 180 14" className="absolute -bottom-1 right-0 h-3 w-full text-[#00a779]"><path className="hero-underline" pathLength="1" d="M3 9Q80 0 176 6" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" /></svg></span></h1>
+            <p data-reveal data-reveal-delay="130" className="mt-7 max-w-md text-[15px] leading-8 text-muted">من سيارتك وبيتك إلى عائلتك وأعمالك.<br className="hidden sm:block" /> اكتشف خيارات التأمين، واختر بداية تناسب ما يهمّك.</p>
+            <div data-reveal data-reveal-delay="190" className="mt-8 flex flex-wrap items-center gap-5">
               <a href="#insurance" className="button-primary min-h-13 px-7">اكتشف تأمينك <ArrowLeft size={19} /></a>
               <a href="#how-it-works" className="flex min-h-12 items-center gap-2 text-sm font-semibold hover:text-brand">كيف تبدأ؟ <ArrowDownLeft size={17} className="text-green" /></a>
             </div>

@@ -20,7 +20,7 @@ export default function Navbar({ onAccount }) {
       <div className="site-container flex h-21 items-center justify-between gap-4">
         <Logo onClick={() => setOpen(false)} />
         <nav aria-label="القائمة الرئيسية" className="hidden items-center gap-7 lg:flex">
-          {links.map(([name, href]) => <Link key={href} to={href} className="py-3 text-[13px] font-medium text-ink/80 hover:text-brand">{name}</Link>)}
+          {links.map(([name, href]) => <Link key={href} to={href} className="nav-link py-3 text-[13px] font-medium text-ink/80 hover:text-brand">{name}</Link>)}
         </nav>
         <div className="flex items-center gap-3 lg:gap-5">
           <button onClick={onAccount} className="hidden items-center gap-2 text-xs font-semibold text-muted hover:text-brand sm:flex"><UserRound size={17} />حسابي</button>
