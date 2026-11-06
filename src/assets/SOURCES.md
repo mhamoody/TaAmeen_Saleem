@@ -1,0 +1,10 @@
+# Asset sources
+
+- `saleem-logo.jpg`: the original embedded JPEG from the user-supplied **Saleem Developer Brief – Motor**, dated 5 November 2026. Extracted without editing; 690 × 259 pixels. No licensing status is inferred from the logo.
+- `hero-motor.png`: original illustrative image created with the built-in image-generation tool on 6 November 2026 for this landing-page concept. It does not represent an actual Saleem office, customer or insurer.
+- The other nine `hero-*.png` images were created with the built-in image-generation tool on 6 November 2026 for the insurance carousel. See [CAROUSEL-PROMPTS.md](CAROUSEL-PROMPTS.md) for the complete prompt set. Original generated files are used without visual edits.
+- UI icons: `lucide-react`. Fonts: locally bundled Noto Sans Arabic Variable and Manrope Variable via Fontsource; their licenses ship with the packages.
+
+## Hero generation prompt
+
+Use case: photorealistic-natural. Asset type: original hero photograph for Saleem, an Arabic Saudi insurance comparison landing page. Create one high-end editorial landscape photograph, 3:2 aspect ratio, composed beautifully for a rounded website image panel. Main subject a modern pearl white unbranded midsize SUV, parked at a slight front three-quarter angle on a pale sand-colored stone courtyard in an elegant Riyadh-inspired residential setting. A contemporary cream stone arch and a single palm tree in the background, restrained subtle green planting, clear pale blue sky, warm late-afternoon natural sunshine, calm reassuring mood. Realistic automotive proportions, exquisite material texture, soft directional shadows, warm ivory with cool light blue color balance, premium but approachable. Camera at about car hood height, car occupies lower-middle of frame, some architectural negative space above. No people, no text, no lettering, no numbers, no logos, no visible license plate characters, no watermark. This is an illustrative lifestyle scene, not a photograph of a real branded product or real office. Do not render any UI, badges, panels, icons, typography, insurance claims or fake screenshot.
